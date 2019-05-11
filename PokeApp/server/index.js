@@ -1,6 +1,7 @@
 const express = require('express');
 const parser = require('body-parser');
 const router = require('./router.js')
+const db = require('../database/index.js')
 
 const app = express();
 app.use(parser.json());

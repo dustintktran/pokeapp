@@ -2,8 +2,8 @@ const router = require('express').Router();
 const controller = require('./controller.js')
 
 router
-  .route('/')
-  .post(controller.post)
+  .route('/pokemon')
+  .post(controller.getPokemon)
 
 
 module.exports = router;
