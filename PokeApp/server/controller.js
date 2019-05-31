@@ -8,7 +8,7 @@ module.exports = {
         if(err) {
           res.send('Pokemon not added')
         } else {
-          res.send(pokemon.name);
+          res.send(pokemon);
         }
       });
     })
