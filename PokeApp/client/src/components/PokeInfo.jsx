@@ -1,4 +1,5 @@
 import React from 'react';
+import './css/PokeInfo.css';
 
 class PokeInfo extends React.Component {
   constructor(props) {
@@ -11,19 +12,22 @@ class PokeInfo extends React.Component {
     return (
       <div className="pokemon-outer">
         <div className="pokemon-top">
-          <img className="pokemon-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png"></img>
+          <img className="pokemon-image" src={this.props.pokemon.sprites.front_default}></img>
           <div className="pokemon-filler"></div>
         </div>
         <div className="pokemon-bottom">
           <div className="pokemon-info">
-            Scizor
+            {this.props.pokemon.name}
           </div>
         </div>
         {/*========== ^ UNDERNEATH ^ ==========*/}
         <div className="pokemon-overlay">
-          <img className="pokemon-overlay-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/212.png"></img>
-          <div className="pokemon-overlay-info">
+          <img className="pokemon-overlay-image" src={this.props.pokemon.sprites.front_default}></img>
+          <div className="pokemon-overlay-bottom">
+            <br/><br/><br/>
+            {this.props.pokemon.id} <br/>
 
+            Type:  <br/>
           </div>
         </div>  
       </div>
