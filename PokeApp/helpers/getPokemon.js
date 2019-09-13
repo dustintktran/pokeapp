@@ -7,8 +7,8 @@ const getPokemonInfo = (nameOrId, callback) => {
     url: reqURL
   }
   request(options, (err, res, body) => {
-    if (err) {
-      console.log(err);
+    if (err || body === 'Not Found') {
+      console.log('something went wrong');
     } else {
       let parsed = JSON.parse(body);
       let id = parsed.id;
@@ -16,7 +16,11 @@ const getPokemonInfo = (nameOrId, callback) => {
       let abilities = parsed.abilities;
       let forms = parsed.forms;
       let moves = parsed.moves;
-      let stats = parsed.stats;
+      let stats = {};
+      for(var i = 0; i < 6; i++) {
+          stats[parsed.stats[i].stat.name] = parsed.stats[i].base_stat;
+      }
+      // let stats = parsed.stats;
       let types = parsed.types;
       let sprites = parsed.sprites;
       //, name, abilities, forms, moves, stats, types, sprites
