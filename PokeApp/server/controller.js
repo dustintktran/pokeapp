@@ -15,5 +15,8 @@ module.exports = {
       // console.log(pokeObj)
       res.send(pokeObj);
     })
+  }),
+  savePokemon: ('/', (req, res) => {
+    //save a pokemon to the db
   })
 }

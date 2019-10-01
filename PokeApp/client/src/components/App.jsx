@@ -15,7 +15,7 @@ class App extends React.Component {
 
   getPokemon(nameOrId, callback) {
     if(!this.state.pokeList[nameOrId]) {
-      $.post('/api/pokemon', {pokemon: nameOrId})
+      $.post('/api/find', {pokemon: nameOrId})
       .then((pokemon) => {
           let oldPokeList = this.state.pokeList;
           oldPokeList[pokemon.name] = pokemon;
