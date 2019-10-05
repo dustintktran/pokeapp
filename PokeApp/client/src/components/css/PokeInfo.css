@@ -114,10 +114,15 @@
   background-color: rgba(0,0,0,0);
   right: 3%;
   top: 15;
-  height: 30px;
+  height: 33px;
   width: 45px;
   border: none;
 }
+
+.favorite-button:focus {
+  outline: none;
+}
+
 .favorite-image {
   height: 100%;
   width: 100%;

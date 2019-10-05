@@ -1,6 +1,6 @@
 const request = require('request');
 
-const getPokemonInfo = (nameOrId, callback) => {
+const getPokemonInfo = (nameOrId, callback) => { //Input a name or ID. Callback with the params as the pokemon info.
   console.log(nameOrId)
   let reqURL = `https://pokeapi.co/api/v2/pokemon/${nameOrId}`;
   let options = {
@@ -20,10 +20,8 @@ const getPokemonInfo = (nameOrId, callback) => {
       for(var i = 0; i < 6; i++) {
           stats[parsed.stats[i].stat.name] = parsed.stats[i].base_stat;
       }
-      // let stats = parsed.stats;
       let types = parsed.types;
       let sprites = parsed.sprites;
-      //, name, abilities, forms, moves, stats, types, sprites
       let basicPokeInfo = {id, name, abilities, forms, moves, stats, types, sprites};
 
       callback(basicPokeInfo);

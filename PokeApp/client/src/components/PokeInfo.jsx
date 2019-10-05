@@ -5,7 +5,7 @@ class PokeInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      favorite: this.props.isFav
     }
     this.capitalizeFirstLetter = this.capitalizeFirstLetter.bind(this);
   }
@@ -16,6 +16,7 @@ class PokeInfo extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     let { id, name, abilities, forms, moves, stats, types, sprites } = this.props.pokemon
     return (
       <div className="pokemon-outer">
@@ -31,7 +32,16 @@ class PokeInfo extends React.Component {
         {/*========== ^ UNDERNEATH ^ ==========*/}
         <div className="pokemon-overlay">
           <img className="pokemon-overlay-image" src={sprites.front_default}></img>
-          <button className="favorite-button"><img className="favorite-image" src={'./resources/yellowStar.png'}/></button>
+
+          {!this.state.favorite && <button className="favorite-button" onClick={() => {
+            this.props.handleFavorite(this.props.pokemon);
+            this.setState({favorite:!this.state.favorite});
+          }}><img className="favorite-image" src={'./resources/yellowStar.png'}/></button>}
+          {this.state.favorite && <button className="favorite-button" onClick={() => {
+            this.props.handleFavorite(this.props.pokemon);
+            this.setState({favorite:!this.state.favorite});
+          }}><img className="favorite-image" src={'./resources/redStar.png'}/></button>}
+
           <div className="pokemon-overlay-bottom">
             <br/><br/><br/>
             ID: {id} <br/>
