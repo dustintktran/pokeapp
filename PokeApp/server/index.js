@@ -11,5 +11,5 @@ app.use(parser.urlencoded({
 app.use(express.static('client/dist/'));
 app.use('/api', router);
 
-app.listen(420, console.log('App running on port 420'));
+app.listen(8080, console.log('App running on port 8080'));
 
