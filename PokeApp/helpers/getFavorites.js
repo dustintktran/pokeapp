@@ -1,7 +1,7 @@
-const db = require('../database/index.js');
+const models = require('../database/models.js');
 
 const getFavorites = (callback) => {
-  db.Pokemon.find()
+  models.Pokemon.find()
   .then((arrayOfPokemon) => {
     callback(arrayOfPokemon);
   }) 

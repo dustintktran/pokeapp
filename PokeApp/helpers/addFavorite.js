@@ -1,8 +1,8 @@
-const db = require('../database/index.js');
+const models = require('../database/models.js');
 
 
 const addFavorite = (pokeObj) => {
-  var pokemon = new db.Pokemon(pokeObj)
+  let pokemon = new models.Pokemon(pokeObj)
   pokemon.save((err, pokeObj) => {
     if(err) {
       console.log(err);

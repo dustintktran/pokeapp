@@ -1,7 +1,7 @@
-const db = require('../database/index.js');
+const models = require('../database/models.js');
 
 const removeFavorite = (pokeName) => {
-  db.Pokemon.findOneAndRemove({name: pokeName}, (err) => {
+  models.Pokemon.findOneAndRemove({name: pokeName}, (err) => {
     if(err) {
       console.log(err);
     } else {
